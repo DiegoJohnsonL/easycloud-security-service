@@ -37,9 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors();
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
-        http.authorizeRequests().antMatchers("/api/users/login/**", "/api/token/refresh", "/api/users/register", "/swagger.html/**", "/swagger.json/**", "/swagger-ui/**").permitAll();//not authn needed
-        http.authorizeRequests().antMatchers(GET, "/api/users/**").hasAnyAuthority("ROLE_USER");
-        http.authorizeRequests().antMatchers(GET, "/api/roles/**").hasAnyAuthority("ROLE_ADMIN");
+        http.authorizeRequests().antMatchers("/security/users/login/**", "/security/token/refresh", "/security/users/register", "/swagger.html/**", "/swagger.json/**", "/swagger-ui/**").permitAll();//not authn needed
+        http.authorizeRequests().antMatchers(GET, "/security/users/**").hasAnyAuthority("ROLE_USER");
+        http.authorizeRequests().antMatchers(GET, "/security/roles/**").hasAnyAuthority("ROLE_ADMIN");
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilterBefore(new CustomAuthorizationFilter(jwtCenter), UsernamePasswordAuthenticationFilter.class);
     }
