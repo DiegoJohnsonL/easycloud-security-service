@@ -31,7 +31,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/security")
 @RequiredArgsConstructor
 @Slf4j
 public class UserController {
